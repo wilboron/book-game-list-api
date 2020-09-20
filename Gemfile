@@ -55,3 +55,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'spring-commands-rspec', group: :development
+
+gem 'simplecov', require: false, group: :test
