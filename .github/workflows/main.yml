@@ -17,12 +17,15 @@ jobs:
       - name: Check code
         run: rubocop
   brakemen-test:
+    name: Brakemen
     runs-on: ubuntu-latest
     steps:
-      - uses: devmasx/brakeman-linter-action@v1.0.0
+      - uses: actions/checkout@v2
+      - name: Run brakemen
+        uses: devmasx/brakeman-linter-action@v1.0.0
   rspec-test:
     name: RSpec
-    needs: [rubocop-test]
+    needs: [rubocop-test, brakemen-test]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
