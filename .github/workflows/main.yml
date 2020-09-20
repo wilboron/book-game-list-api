@@ -35,10 +35,18 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ env.RUBY_VERSION }}
+    - name: Ruby gem cache
+      uses: actions/cache@v1
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
     - name: Install dependencies
       run: |
-        gem install bundler  
-        bundle install
+        gem install bundler
+        bundle config path vendor/bundle
+        bundle install --jobs 4 --retry 3
     - name: Create database
       run: |
         bundler exec rails db:create RAILS_ENV=test
