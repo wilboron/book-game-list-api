@@ -60,6 +60,7 @@ GEM
     bcrypt (3.1.15)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
+    brakeman (4.9.1)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -102,6 +103,8 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     parallel (1.19.2)
+    parallel_tests (3.3.0)
+      parallel
     parser (2.7.1.4)
       ast (~> 2.4.1)
     puma (4.3.6)
@@ -186,6 +189,8 @@ GEM
       simplecov-html (~> 0.11)
     simplecov-html (0.12.2)
     spring (2.1.1)
+    spring-commands-parallel-tests (1.0.1)
+      spring (>= 0.9.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     spring-watcher-listen (2.0.1)
@@ -216,11 +221,13 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
+  brakeman
   bullet
   byebug
   factory_bot_rails
   faker
   listen (~> 3.2)
+  parallel_tests
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rspec-rails
@@ -231,6 +238,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   spring
+  spring-commands-parallel-tests
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
   sqlite3 (~> 1.4)

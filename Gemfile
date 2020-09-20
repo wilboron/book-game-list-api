@@ -28,15 +28,17 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'parallel_tests'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'spring-commands-parallel-tests'
+  gem 'spring-commands-rspec'
 end
 
 group :development do
@@ -51,9 +53,6 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+gem 'simplecov', require: false, group: :test
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'spring-commands-rspec', group: :development
-
-gem 'simplecov', require: false, group: :test
