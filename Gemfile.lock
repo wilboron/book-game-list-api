@@ -60,7 +60,6 @@ GEM
     bcrypt (3.1.15)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
-    brakeman (4.9.1)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -221,7 +220,6 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   bootsnap (>= 1.4.2)
-  brakeman
   bullet
   byebug
   factory_bot_rails
