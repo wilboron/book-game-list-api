@@ -51,6 +51,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'test-prof'
 end
 
 gem 'simplecov', require: false, group: :test
