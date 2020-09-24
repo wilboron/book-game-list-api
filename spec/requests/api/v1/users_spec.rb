@@ -18,7 +18,8 @@ RSpec.describe '/api/v1/users', type: :request do
   let(:valid_headers) { {} }
 
   describe 'GET /index' do
-    let!(:user) { create(:user) }
+    before { create(:user) }
+
     it 'renders a successful response' do
       get api_v1_users_url, headers: valid_headers, as: :json
       expect(response).to be_successful
