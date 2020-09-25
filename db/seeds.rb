@@ -10,3 +10,5 @@
 
 puts 'Creating users'
 FactoryBot.create_list(:user, 15)
+puts 'Creating books'
+FactoryBot.create_list(:book, 15)
