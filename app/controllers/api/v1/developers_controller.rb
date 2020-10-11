@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Api::V1::DevelopersController < ApplicationController
-  before_action :set_developer, only: [:show, :update, :destroy]
+  before_action :set_developer, only: %i[show update destroy]
 
   # GET /developers
   def index
@@ -40,7 +42,7 @@ class Api::V1::DevelopersController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
+  # Use callbacks to share common setup or constraints between actions.
   def set_developer
     @developer = Developer.find(params[:id])
   end
