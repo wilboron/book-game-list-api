@@ -10,25 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_011022) do
+ActiveRecord::Schema.define(version: 2020_10_11_180134) do
 
-  create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.integer "num_pages"
-    t.string "genre"
-    t.string "serie"
-    t.date "pub_date"
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "games", force: :cascade do |t|
-    t.string "title"
-    t.string "developer"
+  create_table "books", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "num_pages", null: false
+    t.string "genre", null: false
     t.string "serie"
-    t.string "genre"
-    t.date "pub_date"
+    t.date "pub_date", null: false
+    t.integer "author_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "developer", null: false
+    t.string "serie"
+    t.string "genre", null: false
+    t.date "pub_date", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

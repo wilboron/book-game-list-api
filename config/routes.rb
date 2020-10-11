@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :users
       resources :books
       resources :games
+      resources :authors
       resources :tokens, only: %i[create]
     end
   end
