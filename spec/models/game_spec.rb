@@ -11,9 +11,9 @@ RSpec.describe Game, type: :model do
     end
 
     it { expect(game).to validate_presence_of(:title) }
-    it { expect(game).to validate_presence_of(:developer) }
     it { expect(game).to validate_presence_of(:genre) }
     it { expect(game).to validate_presence_of(:pub_date) }
     it { expect(game).not_to validate_presence_of(:serie) }
+    it { expect(game).to belong_to(:developer) }
   end
 end

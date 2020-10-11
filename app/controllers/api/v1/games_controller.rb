@@ -3,19 +3,19 @@
 class Api::V1::GamesController < ApplicationController
   before_action :set_game, only: %i[show update destroy]
 
-  # GET /games
+  # GET /api/v1/games
   def index
     @games = Game.all
 
     render json: @games
   end
 
-  # GET /games/1
+  # GET /api/v1/games/1
   def show
     render json: @game
   end
 
-  # POST /games
+  # POST /api/v1/games
   def create
     @game = Game.new(game_params)
 
@@ -26,7 +26,7 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
+  # PATCH/PUT /api/v1/games/1
   def update
     if @game.update(game_params)
       render json: @game
@@ -35,7 +35,7 @@ class Api::V1::GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
+  # DELETE /api/v1/games/1
   def destroy
     @game.destroy
   end
@@ -49,6 +49,6 @@ class Api::V1::GamesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def game_params
-    params.require(:game).permit(:title, :developer, :serie, :genre, :pub_date)
+    params.require(:game).permit(:title, :developer_id, :serie, :genre, :pub_date)
   end
 end

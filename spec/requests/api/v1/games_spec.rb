@@ -18,7 +18,8 @@ RSpec.describe '/api/v1/games', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Game. As you add validations to Game, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { attributes_for(:game) }
+  let(:developer) { create(:developer) }
+  let(:valid_attributes) { attributes_for(:game, developer_id: developer.id) }
 
   let(:invalid_attributes) { attributes_for(:game, title: nil) }
   # This should return the minimal set of values that should be in the headers
