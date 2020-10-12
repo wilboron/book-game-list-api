@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       resources :games
       resources :authors
       resources :developers
+      resources :reads
+      resources :plays
       resources :tokens, only: %i[create]
     end
   end

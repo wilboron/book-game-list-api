@@ -17,5 +17,7 @@ RSpec.describe User, type: :model do
     it { expect(user).not_to validate_presence_of(:bio) }
     it { expect(user).to validate_length_of(:name).is_at_least(2).is_at_most(50) }
     it { expect(user).to validate_length_of(:password).is_at_least(5).is_at_most(40) }
+    it { expect(user).to have_many(:reads).dependent(:destroy) }
+    it { expect(user).to have_many(:books).through(:reads) }
   end
 end

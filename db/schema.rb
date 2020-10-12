@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_194953) do
+ActiveRecord::Schema.define(version: 2020_10_12_022803) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -47,6 +47,33 @@ ActiveRecord::Schema.define(version: 2020_10_11_194953) do
     t.index ["developer_id"], name: "index_games_on_developer_id"
   end
 
+  create_table "plays", force: :cascade do |t|
+    t.boolean "did_not_finished", default: false
+    t.integer "minutes_played", default: 0
+    t.integer "plataform", null: false
+    t.date "start_date", null: false
+    t.date "end_date"
+    t.integer "game_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_plays_on_game_id"
+    t.index ["user_id"], name: "index_plays_on_user_id"
+  end
+
+  create_table "reads", force: :cascade do |t|
+    t.boolean "did_not_finished", default: false
+    t.integer "medium", null: false
+    t.date "start_date", null: false
+    t.date "end_date"
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_reads_on_book_id"
+    t.index ["user_id"], name: "index_reads_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -57,4 +84,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_194953) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "plays", "games"
+  add_foreign_key "plays", "users"
+  add_foreign_key "reads", "books"
+  add_foreign_key "reads", "users"
 end

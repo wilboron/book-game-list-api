@@ -16,5 +16,7 @@ RSpec.describe Book, type: :model do
     it { expect(book).to validate_presence_of(:pub_date) }
     it { expect(book).not_to validate_presence_of(:serie) }
     it { expect(book).to belong_to(:author) }
+    it { expect(book).to have_many(:reads).dependent(:restrict_with_exception) }
+    it { expect(book).to have_many(:users).through(:reads) }
   end
 end

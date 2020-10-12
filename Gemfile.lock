@@ -208,10 +208,13 @@ GEM
     test-prof (0.12.2)
     thor (1.0.1)
     thread_safe (0.3.6)
+    timeliness (0.4.4)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
     uniform_notifier (1.13.0)
+    validates_timeliness (4.1.1)
+      timeliness (>= 0.3.10, < 1)
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -246,6 +249,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   test-prof
   tzinfo-data
+  validates_timeliness
 
 RUBY VERSION
    ruby 2.7.1p83
