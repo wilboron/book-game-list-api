@@ -19,7 +19,7 @@ RSpec.describe Authenticable do
   let(:fake_controller) { FakeController.new }
 
   describe '#current_user' do
-    let!(:user) { create(:user) }
+    let(:user) { create(:user) }
 
     context 'when Authorization token is valid' do
       before do

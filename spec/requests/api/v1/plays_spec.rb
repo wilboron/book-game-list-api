@@ -48,7 +48,6 @@ RSpec.describe '/api/v1/plays', type: :request do
     it 'renders a successful response' do
       play = Play.create! valid_attributes
       get api_v1_play_url(play), headers: valid_headers, as: :json
-      puts response
       expect(response).to be_successful
     end
   end
