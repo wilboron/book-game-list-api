@@ -10,7 +10,13 @@
 
 puts 'Creating users'
 FactoryBot.create_list(:user, 15)
+puts 'Create User Test'
+FactoryBot.create(:user, email: 'test@example.com', password: '12345')
 puts 'Creating books'
 FactoryBot.create_list(:book, 15)
 puts 'Creating games'
 FactoryBot.create_list(:game, 15)
+puts 'Creating plays'
+FactoryBot.create_list(:play, 15)
+puts 'Creating reads'
+FactoryBot.create_list(:read, 15)
