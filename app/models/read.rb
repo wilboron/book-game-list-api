@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Read < ApplicationRecord
   validates_date :start_date, on_or_before: -> { Date.current }
   validates_date :end_date, on_or_after: :start_date

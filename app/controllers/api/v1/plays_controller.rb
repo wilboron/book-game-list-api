@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Api::V1::PlaysController < ApplicationController
-  before_action :set_play, only: [:show, :update, :destroy]
+  before_action :set_play, only: %i[show update destroy]
   before_action :check_login
   before_action :check_owner, only: %i[update destroy]
 
