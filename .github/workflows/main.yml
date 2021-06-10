@@ -15,18 +15,9 @@ jobs:
           bundler-cache: true
       - name: Check code
         run: bundle exec rubocop
-  brakemen-test:
-    name: Brakemen
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run brakemen
-        uses: devmasx/brakeman-linter-action@v1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   rspec-test:
     name: RSpec
-    needs: [rubocop-test, brakemen-test]
+    needs: [rubocop-test]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
