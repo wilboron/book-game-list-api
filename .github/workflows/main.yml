@@ -17,7 +17,7 @@ jobs:
         run: bundle exec rubocop
   brakemen-test:
     name: Brakemen
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: Run brakemen
